@@ -15,11 +15,14 @@ const game = (state = defaultState, action) => {
   switch (action.type) {
     case GAME_START:
       return {
-        ...state,
+        ...defaultState,
         isStarted: true
       };
     case GAME_STOP:
-      return defaultState;
+      return {
+        ...state,
+        isStarted: false
+      };
     case SCORE_INCREMENT:
       return {
         ...state,
