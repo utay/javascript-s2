@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Target from '../components/Target';
 import Info from '../components/Info';
 import ButtonStart from '../components/ButtonStart';
+import ButtonStop from '../components/ButtonStop';
 import { GAME_START_REQUESTED } from '../actions';
 
 const mapStateToProps = state => ({
@@ -28,6 +29,7 @@ const GameLayout = ({ isStarted, lives, score, targets, dispatch }) => (
   >
     {isStarted ? (
       <React.Fragment>
+        <ButtonStop />
         <Info lives={lives} score={score} />
         {targets.map(target => (
           <Target
