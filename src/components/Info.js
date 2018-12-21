@@ -1,13 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { GAME_STOP_REQUESTED } from '../actions';
+import {
+  GAME_STOP_REQUESTED,
+  TARGET_SPAWN_PER_SECOND_REQUESTED
+} from '../actions';
 
 class Info extends React.Component {
   componentDidUpdate() {
-    const { lives, dispatch } = this.props;
+    const { score, lives, dispatch } = this.props;
 
     if (lives === 0) {
       dispatch({ type: GAME_STOP_REQUESTED });
+    }
+
+    if (score === 5 || score === 15) {
+      dispatch({ type: TARGET_SPAWN_PER_SECOND_REQUESTED });
     }
   }
 

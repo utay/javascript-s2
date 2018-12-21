@@ -6,9 +6,7 @@ import {
   GAME_STOP_REQUESTED,
   TARGET_RESET,
   TARGET_DECREMENT,
-  TARGET_DECREMENT_REQUESTED,
-  TARGET_SPAWN,
-  TARGET_SPAWN_REQUESTED
+  TARGET_SPAWN
 } from '../actions';
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -20,7 +18,7 @@ function* decrementTargets() {
       yield put({ type: TARGET_DECREMENT });
     }
   } finally {
-    if (yield cancelled()) console.log('lol');
+    if (yield cancelled()) console.log('stop');
   }
 }
 
@@ -31,7 +29,7 @@ function* spawnTarget() {
       yield put({ type: TARGET_SPAWN });
     }
   } finally {
-    if (yield cancelled()) console.log('lol');
+    if (yield cancelled()) console.log('stop');
   }
 }
 
