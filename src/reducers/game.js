@@ -1,4 +1,9 @@
-import { GAME_START, SCORE_INCREMENT, LIVES_DECREMENT } from '../actions';
+import {
+  GAME_START,
+  GAME_STOP,
+  SCORE_INCREMENT,
+  LIVES_DECREMENT
+} from '../actions';
 
 const defaultState = {
   lives: 3,
@@ -13,6 +18,8 @@ const game = (state = defaultState, action) => {
         ...state,
         isStarted: true
       };
+    case GAME_STOP:
+      return defaultState;
     case SCORE_INCREMENT:
       return {
         ...state,

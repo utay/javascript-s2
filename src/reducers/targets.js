@@ -1,4 +1,9 @@
-import { TARGET_DESTROY, TARGET_DECREMENT, TARGET_SPAWN } from '../actions';
+import {
+  TARGET_DESTROY,
+  TARGET_DECREMENT,
+  TARGET_SPAWN,
+  TARGET_RESET
+} from '../actions';
 import { getRandomCoordinate, getRandomValue, getUniqueId } from '../utils';
 
 const newTarget = () => ({
@@ -29,6 +34,8 @@ const targets = (state = defaultState, action) => {
       return {
         targets: [...state.targets, newTarget()]
       };
+    case TARGET_RESET:
+      return defaultState;
     default:
       return state;
   }

@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import Target from '../components/Target';
 import Info from '../components/Info';
 import ButtonStart from '../components/ButtonStart';
-import {
-  GAME_START_REQUESTED,
-  TARGET_SPAWN_REQUESTED,
-  TARGET_DECREMENT_REQUESTED
-} from '../actions';
+import { GAME_START_REQUESTED } from '../actions';
 
 const mapStateToProps = state => ({
   lives: state.game.lives,
@@ -44,13 +40,7 @@ const GameLayout = ({ isStarted, lives, score, targets, dispatch }) => (
         ))}
       </React.Fragment>
     ) : (
-      <ButtonStart
-        onClick={() => {
-          dispatch({ type: GAME_START_REQUESTED });
-          dispatch({ type: TARGET_SPAWN_REQUESTED });
-          dispatch({ type: TARGET_DECREMENT_REQUESTED });
-        }}
-      />
+      <ButtonStart onClick={() => dispatch({ type: GAME_START_REQUESTED })} />
     )}
   </div>
 );
